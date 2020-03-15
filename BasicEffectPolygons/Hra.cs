@@ -14,6 +14,8 @@ namespace BasicEffectPolygons
         Matrix view = Matrix.CreateLookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0), new Vector3(0, 1, 0));
         Matrix projection = Matrix.CreateOrthographic(800f, 600f, 0.01f, 100f);
 
+        float rotation = 0.0f;
+
         public Hra()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -49,7 +51,7 @@ namespace BasicEffectPolygons
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            
+            rotation += 0.001f;
 
             base.Update(gameTime);
         }
@@ -58,7 +60,7 @@ namespace BasicEffectPolygons
         {
             GraphicsDevice.Clear(Color.White);
 
-            basicEffect.World = world;
+            basicEffect.World = Matrix.CreateRotationZ(rotation);
             basicEffect.View = view;
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
