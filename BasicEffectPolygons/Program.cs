@@ -4,7 +4,7 @@
     {
         static void Main()
         {
-            new Hra().Run();
+            new Demo().Run();
         }
     }
 }

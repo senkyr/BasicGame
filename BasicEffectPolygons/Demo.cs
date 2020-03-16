@@ -4,25 +4,27 @@ using Microsoft.Xna.Framework.Input;
 
 namespace BasicEffectPolygons
 {
-    public class Hra : Game
+    public class Demo : Game
     {
-        GraphicsDeviceManager SpravceZobrazovacihoZarizeni;
+        GraphicsDeviceManager SpravceZobrazovacihoZarizeni { get; set; }
         GraphicsDevice ZobrazovaciZarizeni => GraphicsDevice;
 
-        Rectangle OknoHry => new Rectangle(0, 0, 800, 600);
+        Point RozliseniOkna => new Point(800, 600);
+
+        Matrix Kamera { get; set; }
+        Matrix Projekce { get; set; }
+        Polygon[] Polygony { get; set; }
+
+        Rectangle OknoHry => new Rectangle(new Point(0,0), RozliseniOkna);
         Point StredOkna => OknoHry.Center;
 
-        Rectangle LevyHorniKvadrant => new Rectangle(0, StredOkna.Y, StredOkna.X, StredOkna.Y);
-        Rectangle PravyHorniKvadrant => new Rectangle(StredOkna.X, StredOkna.Y, StredOkna.X, StredOkna.Y);
-        Rectangle LevyDolniKvadrant => new Rectangle(0, 0, StredOkna.X, StredOkna.Y);
-        Rectangle PravyDolniKvadrant => new Rectangle(StredOkna.X, 0, StredOkna.X, StredOkna.Y);
+        Point VelikostKvadrantu => new Point(OknoHry.Width / 2, OknoHry.Height / 2);
+        Rectangle LevyHorniKvadrant => new Rectangle(new Point(OknoHry.X, StredOkna.Y), VelikostKvadrantu);
+        Rectangle PravyHorniKvadrant => new Rectangle(new Point(StredOkna.X, StredOkna.Y), VelikostKvadrantu);
+        Rectangle LevyDolniKvadrant => new Rectangle(new Point(OknoHry.X, OknoHry.Y), VelikostKvadrantu);
+        Rectangle PravyDolniKvadrant => new Rectangle(new Point(StredOkna.X, OknoHry.Y), VelikostKvadrantu);
 
-        Matrix Kamera;
-        Matrix Projekce;
-
-        Polygon[] Polygony;
-
-        public Hra()
+        public Demo()
         {
             SpravceZobrazovacihoZarizeni = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -54,11 +56,6 @@ namespace BasicEffectPolygons
             };
 
             base.Initialize();
-        }
-
-        protected override void LoadContent()
-        {
-
         }
 
         protected override void Update(GameTime gameTime)
