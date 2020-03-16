@@ -9,8 +9,8 @@
     <ProjectGuid>{D9D9C4F7-986C-46A5-A6CA-7FDB109D6147}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BasicEffectPolygons</RootNamespace>
-    <AssemblyName>BasicEffectPolygons</AssemblyName>
+    <RootNamespace>BasicEffectDemo</RootNamespace>
+    <AssemblyName>BasicEffectDemo</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>

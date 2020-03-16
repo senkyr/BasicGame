@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace BasicEffectPolygons
+namespace BasicEffectDemo
 {
     public class Demo : Game
     {

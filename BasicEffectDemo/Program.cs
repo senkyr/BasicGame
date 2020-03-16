@@ -1,4 +1,4 @@
-﻿namespace BasicEffectPolygons
+﻿namespace BasicEffectDemo
 {
     public static class Program
     {
